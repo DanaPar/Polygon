@@ -2,6 +2,9 @@ const dropZone = document.getElementById('dropZone');
 const fileInput = document.getElementById('fileInput');
 const uploadBtn = document.getElementById('uploadBtn');
 const fileNameDisplay = document.getElementById('fileNameDisplay');
+const textArea = document.getElementById('resultText');
+
+let selectedFile = null;
 
 // 1. Handle Drag & Drop Visuals
 ['dragenter', 'dragover'].forEach(name => {
@@ -41,9 +44,21 @@ function validateAndSetFile(file) {
         return;
     }
 
+    selectedFile = file;
+
     // Success: Update UI
     fileNameDisplay.innerHTML = `<strong>Selected:</strong> ${file.name}`;
     uploadBtn.disabled = false;
 
     console.log("Ready to send to backend:", file);
 }
+
+
+uploadBtn.addEventListener('click', (e) => {
+    if (selectedFile) {
+        GEtoLGS(selectedFile);
+    }
+
+    uploadBtn.disabled = true;
+    uploadBtn.innerText = "Processing...";
+});
