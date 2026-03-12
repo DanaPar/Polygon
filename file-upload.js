@@ -3,6 +3,7 @@ const fileInput = document.getElementById('fileInput');
 const uploadBtn = document.getElementById('uploadBtn');
 const fileNameDisplay = document.getElementById('fileNameDisplay');
 const textArea = document.getElementById('resultText');
+const coordBtn = document.getElementById('coordBtn');
 
 let selectedFile = null;
 
@@ -61,4 +62,27 @@ uploadBtn.addEventListener('click', (e) => {
 
     uploadBtn.disabled = true;
     uploadBtn.innerText = "Processing...";
+});
+
+
+//event listeners for LGS coords
+document.addEventListener('DOMContentLoaded', () => {
+
+    textArea.addEventListener('input', () => {
+        // .trim() ensures that strings with only spaces/newlines are still considered empty
+        if (textArea.value.trim().length > 0) {
+            coordBtn.disabled = false;
+        } else {
+            coordBtn.disabled = true;
+        }
+    });
+});
+
+coordBtn.addEventListener('click', (e) => {
+    if (textArea.value.trim().length > 0) {
+        LGStoGE(textArea.value);
+    }
+
+    coordBtn.disabled = true;
+    coordBtn.innerText = "Processing...";
 });

@@ -30,13 +30,13 @@
         </div>
         <hr>
         <div class="mb-3">
-            <textarea id="resultText" class="form-control" rows="5" placeholder="Paste your coordinates from LGS here..."></textarea>
+            <textarea id="resultText" class="form-control" rows="5" placeholder="Paste parameters from LGS here..."></textarea>
         </div>
-        <button class="btn btn-outline-secondary w-100">LGS to Google Earth</button>
+        <button id="coordBtn" class="btn btn-outline-secondary w-100" disabled >LGS to Google Earth</button>
     </div>
 </div>
 
-<--- HOW TO USE TOOL SECTION--->
+<!--- HOW TO USE TOOL SECTION--->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="helpSidebar" aria-labelledby="helpSidebarLabel">
     <div class="offcanvas-header border-bottom">
         <h5 class="offcanvas-title" id="helpSidebarLabel">How to use the Tool</h5>
@@ -69,6 +69,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="file-upload.js"></script>
 <script src="GEtoLGS.js"></script>
+<script src="LGStoGE.js"></script>
 
 
 </body>
