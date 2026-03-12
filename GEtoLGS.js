@@ -4,6 +4,7 @@ async function GEtoLGS(file) {
         const dmsArray = degDec.map(coord => degDecToDMS(coord.lat, coord.lon));
 
         textArea.innerHTML = dmsArray.join(' - ');
+        showPopup("Copied to clipboard!");
         await navigator.clipboard.writeText(dmsArray.join(' '));
     } catch (error) {
         console.error(error);
@@ -74,5 +75,23 @@ function degDecToDMS(lat, lon){
     const lonPart = transform(lon, 'lon');
 
     return latPart+lonPart;
+}
+
+function showPopup(message) {
+    let popup = document.getElementById('popup-container');
+
+    if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'popup-container';
+        document.body.appendChild(popup);
+    }
+
+    popup.innerText = message;
+    popup.classList.add('show');
+
+    // Hide it after 2.5 seconds
+    setTimeout(() => {
+        popup.classList.remove('show');
+    }, 2500);
 }
 
