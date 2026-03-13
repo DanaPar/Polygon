@@ -25,6 +25,10 @@ let selectedFile = null;
 
 // 2. Handle File Drop & Validation
 dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (dropZone.classList.contains('disabled')) return;
+
     const droppedFiles = e.dataTransfer.files;
     if (droppedFiles.length) {
         validateAndSetFile(droppedFiles[0]);
@@ -94,7 +98,10 @@ coordBtn.addEventListener('click', () => {
     }
 
     coordBtn.disabled = true;
-    coordBtn.innerText = "Processing...";
+    coordBtn.innerText = "Done!";
+    textArea.readOnly = true;
+    dropZone.classList.add('disabled');
+    fileInput.disabled = true;
 });
 
 refreshBtn.addEventListener('click', () => {
