@@ -3,7 +3,7 @@ async function GEtoLGS(file) {
         const degDec = await processKml(file);
         const dmsArray = degDec.map(coord => degDecToDMS(coord.lat, coord.lon));
 
-        textArea.innerHTML = dmsArray.join(' - ');
+        textArea.value = dmsArray.join(' - ');
         showPopup("Copied to clipboard!");
         await navigator.clipboard.writeText(dmsArray.join(' '));
     } catch (error) {

@@ -107,13 +107,19 @@ coordBtn.addEventListener('click', () => {
 refreshBtn.addEventListener('click', () => {
     //reset file upload section
     fileInput.value = "";
+    fileInput.disabled = false;
     selectedFile = null;
     fileNameDisplay.innerHTML = `Drag & drop <b>.kml</b> file here or click`;
+
+    dropZone.classList.remove('disabled');
+
     uploadBtn.disabled = true;
     uploadBtn.innerText = "Google Earth to LGS";
 
     //reset lgs text section
     textArea.value = "";
+    textArea.readOnly = false;
+
     coordBtn.disabled = true;
     coordBtn.innerText = "LGS to Google Earth";
 })
