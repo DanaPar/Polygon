@@ -4,6 +4,7 @@ const uploadBtn = document.getElementById('uploadBtn');
 const fileNameDisplay = document.getElementById('fileNameDisplay');
 const textArea = document.getElementById('resultText');
 const coordBtn = document.getElementById('coordBtn');
+const refreshBtn = document.getElementById('refreshBtn');
 
 let selectedFile = null;
 
@@ -86,3 +87,17 @@ coordBtn.addEventListener('click', (e) => {
     coordBtn.disabled = true;
     coordBtn.innerText = "Processing...";
 });
+
+refreshBtn.addEventListener('click', () => {
+    //reset file upload section
+    fileInput.value = "";
+    selectedFile = null;
+    fileNameDisplay.innerHTML = `Drag & drop <b>.kml</b> file here or click`;
+    uploadBtn.disabled = true;
+    uploadBtn.innerText = "Google Earth to LGS";
+
+    //reset lgs text section
+    textArea.value = "";
+    coordBtn.disabled = true;
+    coordBtn.innerText = "LGS to Google Earth";
+})

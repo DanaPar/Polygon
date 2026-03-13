@@ -18,7 +18,7 @@
     border-color: #0a58ca;
 }
 
-.btn-link:hover .bi-question-circle-fill {
+.btn-link:hover .bi-question-circle-fill, .btn-link:hover .bi-arrow-repeat  {
     color: #0d6efd !important; /* Primary Blue */
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
