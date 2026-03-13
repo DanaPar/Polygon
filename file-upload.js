@@ -56,13 +56,22 @@ function validateAndSetFile(file) {
 }
 
 
-uploadBtn.addEventListener('click', (e) => {
-    if (selectedFile) {
-        GEtoLGS(selectedFile);
-    }
+uploadBtn.addEventListener('click', async() => {
+    if (!selectedFile) return;
+    try {
+        uploadBtn.disabled = true;
+        uploadBtn.innerText = "Processing...";
 
-    uploadBtn.disabled = true;
-    uploadBtn.innerText = "Processing...";
+        textArea.readOnly = true;
+        await GEtoLGS(selectedFile);
+        uploadBtn.innerText = "Done!";
+
+    } catch (error) {
+        console.error(error);
+        uploadBtn.innerText = "Failed to upload";
+        uploadBtn.disabled = false;
+        textArea.readOnly = false;
+    }
 });
 
 
@@ -79,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-coordBtn.addEventListener('click', (e) => {
+coordBtn.addEventListener('click', () => {
     if (textArea.value.trim().length > 0) {
         LGStoGE(textArea.value);
     }
