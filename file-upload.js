@@ -44,7 +44,7 @@ fileInput.addEventListener('change', (e) => {
 
 function validateAndSetFile(file) {
     if (!file.name.toLowerCase().endsWith('.kml')) {
-        alert("Error: Please upload a .kml file only.");
+        alert("Error: Atļauta ir tikai .kml failu augšupielāde.");
         fileInput.value = ""; // Reset input
         uploadBtn.disabled = true;
         return;
@@ -55,8 +55,6 @@ function validateAndSetFile(file) {
     // Success: Update UI
     fileNameDisplay.innerHTML = `<strong>Selected:</strong> ${file.name}`;
     uploadBtn.disabled = false;
-
-    console.log("Ready to send to backend:", file);
 }
 
 
@@ -64,17 +62,17 @@ uploadBtn.addEventListener('click', async() => {
     if (!selectedFile) return;
     try {
         uploadBtn.disabled = true;
-        uploadBtn.innerText = "Processing...";
+        uploadBtn.innerText = "Apstrādā...";
 
         textArea.readOnly = true;
         await GEtoLGS(selectedFile);
-        uploadBtn.innerText = "Done!";
+        uploadBtn.innerText = "Gatavs!";
         dropZone.classList.add('disabled');
         fileInput.disabled = true;
 
     } catch (error) {
         console.error(error);
-        uploadBtn.innerText = "Failed to upload";
+        uploadBtn.innerText = "Notika kļūda, augšupielādējot";
         uploadBtn.disabled = false;
         textArea.readOnly = false;
     }
@@ -100,7 +98,7 @@ coordBtn.addEventListener('click', () => {
     }
 
     coordBtn.disabled = true;
-    coordBtn.innerText = "Done!";
+    coordBtn.innerText = "Gatavs!";
     textArea.readOnly = true;
     dropZone.classList.add('disabled');
     fileInput.disabled = true;
@@ -116,12 +114,12 @@ refreshBtn.addEventListener('click', () => {
     dropZone.classList.remove('disabled');
 
     uploadBtn.disabled = true;
-    uploadBtn.innerText = "Google Earth to LGS";
+    uploadBtn.innerText = "Google Earth uz LGS";
 
     //reset lgs text section
     textArea.value = "";
     textArea.readOnly = false;
 
     coordBtn.disabled = true;
-    coordBtn.innerText = "LGS to Google Earth";
+    coordBtn.innerText = "LGS uz Google Earth";
 })

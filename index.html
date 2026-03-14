@@ -25,49 +25,48 @@
             </svg>
         </button>
 
-        <h4 class="mb-4 text-center">Polygon Conversion Tool</h4>
+        <h4 class="mb-4 text-center">Poligonu konvertēšanas rīks</h4>
 
         <div class="mb-4">
             <div id="dropZone" class="drop-zone mb-2">
-                <p id="fileNameDisplay" class="mb-2 text-muted">Drag & drop <b>.kml</b> file here or click</p>
+                <p id="fileNameDisplay" class="mb-2 text-muted">Ievelc & nomet <b>.kml</b> failu šeit, vai noklikšķini</p>
                 <input type="file" class="form-control" id="fileInput" accept=".kml">
             </div>
-            <button id="uploadBtn" class="btn btn-primary w-100" disabled>Google Earth to LGS</button>
+            <button id="uploadBtn" class="btn btn-primary w-100" disabled>Google Earth uz LGS</button>
         </div>
         <hr>
         <div class="mb-3">
-            <textarea id="resultText" class="form-control" rows="5" placeholder="Paste parameters from LGS here..."></textarea>
+            <textarea id="resultText" class="form-control" rows="5" placeholder="Ielīmē parametrus no LGS šeit..."></textarea>
         </div>
-        <button id="coordBtn" class="btn btn-outline-secondary w-100" disabled >LGS to Google Earth</button>
+        <button id="coordBtn" class="btn btn-outline-secondary w-100" disabled >LGS uz Google Earth</button>
     </div>
 </div>
 
 <!--- HOW TO USE TOOL SECTION--->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="helpSidebar" aria-labelledby="helpSidebarLabel">
     <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title" id="helpSidebarLabel">How to use the Tool</h5>
+        <h5 class="offcanvas-title" id="helpSidebarLabel">Kā lietot šo rīku</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="alert alert-info">
-            Follow these steps to convert your polygon data.
-        </div>
 
-        <h6><strong>Google Earth to LGS</strong></h6>
+        <h6><strong>Google Earth uz LGS</strong></h6>
         <ol class="mb-4">
-            <li>Export your polygon from Google Earth as a <code>.kml</code> file.</li>
-            <li>Drag and drop that file into the dashed box or click to select it.</li>
-            <li>Press the <strong>Google Earth to LGS</strong> button.</li>
-            <li>Copy the generated coordinates from the text area.</li>
+            <li>Eksportē savu poligonu no Google Earth kā <code>.kml</code> failu. (pašlaik, rīks neatbalsta .kmz failus)</li>
+            <li>Ievelc šo failu, failu auģupielādes rāmī, vai noklikšķini pogu, lai to atlasītu.</li>
+            <li>Nospied <strong>Google Earth uz LGS</strong> pogu.</li>
+            <li>Pārveidotās koordinātas tiks nokopētas uz starpliktuvi, vai vari tās nokopēt pats no teksta lauka.</li>
+            <li>Nokopētās koordinātas ievieto <a href="https://www.airspace.lv/drones">LGS</a> 2.solī Lidojuma apgabala izvēle -> Lietot koordinātas.</li>
         </ol>
 
         <hr>
 
-        <h6><strong>LGS to Google Earth</strong></h6>
+        <h6><strong>LGS uz Google Earth</strong></h6>
         <ol>
-            <li>Paste your LGS coordinate string into the text box.</li>
-            <li>Click <strong>LGS to Google Earth</strong>.</li>
-            <li>A <code>.kml</code> file will be generated for you to download and open in Google Earth.</li>
+            <li>Lai iegūtu koordinātas no LGS, spied "Kopēt filtra parametrus" (angliski - Copy parameters to clipboard)</li>
+            <li>Ielīmē iegūtos parametrus teksta laukā</li>
+            <li>Spied <strong>LGS uz Google Earth</strong>.</li>
+            <li>Tiks uzģenerēts <code>.kml</code> fails, ko pēc lejupielādes varēs atvērt Google Earth.</li>
         </ol>
     </div>
 </div>
