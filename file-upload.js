@@ -69,6 +69,8 @@ uploadBtn.addEventListener('click', async() => {
         textArea.readOnly = true;
         await GEtoLGS(selectedFile);
         uploadBtn.innerText = "Done!";
+        dropZone.classList.add('disabled');
+        fileInput.disabled = true;
 
     } catch (error) {
         console.error(error);
